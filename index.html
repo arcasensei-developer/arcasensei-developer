@@ -1,0 +1,4477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="IklanPro - Platform pasang iklan promosi digital dengan 500+ template, langganan harian/bulanan/tahunan, dan uji coba gratis 3 hari.">
+<meta name="theme-color" content="#0a0e1a">
+<title>IklanPro — Platform Iklan Digital Premium</title>
+<style>
+/* ======================================================================
+   RESET & VARIABLES
+   ====================================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #101525;
+  --bg-tertiary: #161d31;
+  --bg-elevated: #1c2540;
+  --bg-glass: rgba(28, 37, 64, 0.55);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --text-primary: #f5f7ff;
+  --text-secondary: #a8b2d1;
+  --text-tertiary: #6b7699;
+  --text-muted: #4a5470;
+  --brand-primary: #6d5efc;
+  --brand-secondary: #b249f8;
+  --brand-accent: #00d4ff;
+  --brand-gradient: linear-gradient(135deg, #6d5efc 0%, #b249f8 50%, #ff4ecd 100%);
+  --brand-gradient-soft: linear-gradient(135deg, rgba(109, 94, 252, 0.15) 0%, rgba(178, 73, 248, 0.15) 100%);
+  --success: #00e6a5;
+  --success-soft: rgba(0, 230, 165, 0.12);
+  --warning: #ffb547;
+  --warning-soft: rgba(255, 181, 71, 0.12);
+  --danger: #ff4d6d;
+  --danger-soft: rgba(255, 77, 109, 0.12);
+  --info: #00d4ff;
+  --info-soft: rgba(0, 212, 255, 0.12);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(109, 94, 252, 0.35);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 999px;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 72px;
+  --max-width: 1320px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(109, 94, 252, 0.18), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(178, 73, 248, 0.10), transparent);
+  background-attachment: fixed;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ======================================================================
+   TYPOGRAPHY & UTILITIES
+   ====================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+img { max-width: 100%; display: block; }
+input, textarea, select { font-family: inherit; }
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-gradient {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-center { text-align: center; }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.hidden { display: none !important; }
+
+.section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--brand-gradient-soft);
+  border: 1px solid rgba(109, 94, 252, 0.25);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-accent);
+  margin-bottom: 18px;
+  letter-spacing: 0.3px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ======================================================================
+   BUTTONS
+   ====================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn:hover::before { opacity: 1; }
+
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+.btn-primary {
+  background: var(--brand-gradient);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(109, 94, 252, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(109, 94, 252, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-strong);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #00e6a5, #00b88a);
+  color: #04120e;
+  box-shadow: 0 4px 20px rgba(0, 230, 165, 0.3);
+}
+
+.btn-danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border: 1px solid rgba(255, 77, 109, 0.3);
+}
+
+.btn-danger:hover { background: rgba(255, 77, 109, 0.2); }
+
+.btn-sm { padding: 9px 18px; font-size: 13.5px; }
+.btn-lg { padding: 16px 34px; font-size: 16px; }
+.btn-block { width: 100%; }
+.btn-icon { padding: 10px; width: 42px; height: 42px; border-radius: var(--radius-md); }
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ======================================================================
+   HEADER
+   ====================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-base);
+  background: rgba(10, 14, 26, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header.scrolled {
+  background: rgba(10, 14, 26, 0.92);
+  border-bottom-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+}
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--brand-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(109, 94, 252, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent 60%);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 9px 16px;
+  border-radius: var(--radius-full);
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu-btn span {
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+/* ======================================================================
+   HERO
+   ====================================================================== */
+.hero {
+  padding: calc(var(--header-height) + 60px) 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  backdrop-filter: blur(12px);
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 12px var(--success);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(36px, 5.5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 560px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 44px;
+  flex-wrap: wrap;
+}
+
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+}
+
+.hero-phone {
+  width: 280px;
+  aspect-ratio: 9 / 19;
+  background: var(--bg-secondary);
+  border-radius: 42px;
+  border: 8px solid #1a2138;
+  box-shadow: var(--shadow-lg), 0 0 80px rgba(109, 94, 252, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: floatPhone 6s ease-in-out infinite;
+}
+
+@keyframes floatPhone {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-18px) rotate(-2deg); }
+}
+
+.hero-phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 22px;
+  background: #0a0e1a;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+.hero-phone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #6d5efc, #b249f8, #ff4ecd);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.hero-phone-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(0,0,0,0.2), transparent 50%);
+}
+
+.hero-phone-badge {
+  background: rgba(255,255,255,0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-phone-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-phone-text {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-phone-btn {
+  background: #fff;
+  color: #6d5efc;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-float {
+  position: absolute;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-md);
+  z-index: 3;
+}
+
+.hero-float-1 {
+  top: 60px;
+  left: -10px;
+  animation: floatY1 5s ease-in-out infinite;
+}
+
+.hero-float-2 {
+  bottom: 90px;
+  right: -10px;
+  animation: floatY2 5.5s ease-in-out infinite;
+}
+
+.hero-float-3 {
+  bottom: 20px;
+  left: 30px;
+  animation: floatY1 6.5s ease-in-out infinite reverse;
+}
+
+@keyframes floatY1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes floatY2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(12px); }
+}
+
+.hero-float-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.hero-float-icon.green { background: var(--success-soft); }
+.hero-float-icon.purple { background: var(--brand-gradient-soft); }
+.hero-float-icon.blue { background: var(--info-soft); }
+
+.hero-float-value {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.hero-float-label {
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+}
+
+/* ======================================================================
+   MARQUEE / LOGOS
+   ====================================================================== */
+.marquee-wrap {
+  padding: 32px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-wrap::before,
+.marquee-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+
+.marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.marquee {
+  display: flex;
+  gap: 60px;
+  animation: marqueeScroll 32s linear infinite;
+  width: max-content;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* ======================================================================
+   ADS FEED
+   ====================================================================== */
+.feed-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 6px 6px 6px 20px;
+  transition: all var(--transition-fast);
+}
+
+.search-bar:focus-within {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(109, 94, 252, 0.12);
+}
+
+.search-bar svg { flex-shrink: 0; color: var(--text-tertiary); }
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 15px;
+  padding: 12px 0;
+}
+
+.search-bar input::placeholder { color: var(--text-muted); }
+
+.filters-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-chip {
+  padding: 9px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.filter-chip.active {
+  background: var(--brand-gradient);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(109, 94, 252, 0.3);
+}
+
+.sort-select {
+  margin-left: auto;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  padding: 9px 18px;
+  font-size: 13.5px;
+  outline: none;
+  cursor: pointer;
+}
+
+.sort-select:focus { border-color: var(--brand-primary); }
+
+.ads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.ad-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: cardIn 0.4s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ad-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.ad-card-visual {
+  aspect-ratio: 9 / 14;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.ad-card-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 15%, rgba(255,255,255,0.22), transparent 55%),
+    radial-gradient(circle at 75% 85%, rgba(0,0,0,0.18), transparent 55%);
+  pointer-events: none;
+}
+
+.ad-visual-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 12px;
+  background: rgba(0,0,0,0.28);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.ad-visual-premium {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 5px 10px;
+  background: rgba(255, 200, 0, 0.22);
+  border: 1px solid rgba(255, 200, 0, 0.5);
+  border-radius: var(--radius-full);
+  font-size: 10.5px;
+  font-weight: 700;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ad-visual-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+.ad-visual-text {
+  font-size: 12.5px;
+  line-height: 1.5;
+  opacity: 0.92;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+  max-width: 92%;
+}
+
+.ad-visual-cta {
+  padding: 10px 22px;
+  background: #fff;
+  color: #0a0e1a;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ad-card-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.ad-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ad-category-pill {
+  padding: 4px 10px;
+  background: var(--brand-gradient-soft);
+  color: var(--brand-accent);
+  border-radius: var(--radius-full);
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ad-time {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.ad-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ad-card-stats {
+  display: flex;
+  gap: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.ad-card-stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ad-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 18px 16px;
+}
+
+.ad-card-actions .btn {
+  flex: 1;
+  padding: 9px;
+  font-size: 12.5px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--text-tertiary);
+}
+
+.empty-state-icon {
+  font-size: 60px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+}
+
+.empty-state p { font-size: 14px; }
+
+/* ======================================================================
+   CREATE AD
+   ====================================================================== */
+.create-ad-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  align-items: start;
+}
+
+.form-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+.form-section:last-child { margin-bottom: 0; }
+
+.form-section-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-section-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--brand-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group:last-child { margin-bottom: 0; }
+
+.form-label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.form-label .required { color: var(--danger); margin-left: 2px; }
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 13px 16px;
+  color: var(--text-primary);
+  font-size: 14.5px;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--text-muted); }
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 4px rgba(109, 94, 252, 0.12);
+  background: var(--bg-elevated);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.char-counter {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.char-counter.over { color: var(--danger); }
+
+/* Template picker */
+.template-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.template-search {
+  flex: 1;
+  min-width: 180px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 9px 16px;
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+}
+
+.template-search:focus { border-color: var(--brand-primary); }
+
+.template-count {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-elevated) transparent;
+}
+
+.template-grid::-webkit-scrollbar { width: 6px; }
+.template-grid::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 3px;
+}
+
+.template-thumb {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.template-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 60%);
+  pointer-events: none;
+}
+
+.template-thumb:hover {
+  transform: scale(1.03);
+  border-color: var(--border-strong);
+}
+
+.template-thumb.selected {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.25);
+}
+
+.template-thumb-check {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--brand-accent);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #0a0e1a;
+  font-weight: 900;
+  z-index: 2;
+}
+
+.template-thumb.selected .template-thumb-check { display: flex; }
+
+.template-thumb-label {
+  position: relative;
+  z-index: 1;
+  font-size: 8.5px;
+  opacity: 0.9;
+  margin-top: auto;
+  background: rgba(0,0,0,0.25);
+  padding: 3px 6px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Preview panel */
+.preview-panel {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+}
+
+.preview-panel-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--success-soft);
+  color: var(--success);
+  border-radius: var(--radius-full);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.preview-badge-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: pulse 2s infinite;
+}
+
+.preview-phone {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 28px;
+  border: 6px solid #1a2138;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg-tertiary);
+  box-shadow: var(--shadow-lg);
+}
+
+.preview-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 18px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.preview-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 15%, rgba(255,255,255,0.22), transparent 55%),
+    radial-gradient(circle at 75% 85%, rgba(0,0,0,0.18), transparent 55%);
+  pointer-events: none;
+}
+
+.preview-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.02em;
+}
+
+.preview-text {
+  font-size: 11px;
+  line-height: 1.5;
+  opacity: 0.92;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.preview-cta {
+  padding: 8px 18px;
+  background: #fff;
+  color: #0a0e1a;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.preview-info {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preview-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.preview-info-row span:first-child { color: var(--text-tertiary); }
+.preview-info-row span:last-child {
+  color: var(--text-primary);
+  font-weight: 600;
+  max-width: 60%;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview-link-preview {
+  background: var(--bg-tertiary);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 11.5px;
+  color: var(--brand-accent);
+  word-break: break-all;
+  border: 1px solid var(--border-subtle);
+  margin-top: 4px;
+}
+
+/* ======================================================================
+   PRICING
+   ====================================================================== */
+.billing-toggle {
+  display: inline-flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 5px;
+  margin: 0 auto 48px;
+  gap: 4px;
+}
+
+.billing-tab {
+  padding: 11px 26px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.billing-tab.active {
+  background: var(--brand-gradient);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(109, 94, 252, 0.35);
+}
+
+.billing-tab .save-tag {
+  font-size: 10px;
+  padding: 2px 7px;
+  background: var(--success);
+  color: #04120e;
+  border-radius: var(--radius-full);
+  margin-left: 6px;
+  font-weight: 800;
+}
+
+.billing-tab.active .save-tag {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.price-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 34px 28px;
+  position: relative;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.price-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.price-card.featured {
+  border-color: var(--brand-primary);
+  background: linear-gradient(180deg, rgba(109, 94, 252, 0.1), var(--bg-secondary));
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.03);
+}
+
+.price-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+
+.price-badge-popular {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--brand-gradient);
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(109, 94, 252, 0.4);
+  white-space: nowrap;
+}
+
+.price-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.price-desc {
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.price-amount {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.price-currency {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.price-value {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.price-period {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  align-self: flex-end;
+  margin-bottom: 8px;
+}
+
+.price-strike {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-bottom: 24px;
+  min-height: 20px;
+}
+
+.price-features {
+  list-style: none;
+  margin-bottom: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.price-features li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--success);
+}
+
+.price-features li.disabled {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.price-features li.disabled svg { color: var(--text-muted); }
+
+.trial-note {
+  text-align: center;
+  margin-top: 40px;
+  padding: 22px;
+  background: var(--warning-soft);
+  border: 1px solid rgba(255, 181, 71, 0.25);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  color: var(--warning);
+}
+
+.trial-note strong { color: #ffd08a; }
+
+/* ======================================================================
+   DASHBOARD
+   ====================================================================== */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.dashboard-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+}
+
+.dashboard-subtitle {
+  color: var(--text-tertiary);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.subscription-card {
+  background: linear-gradient(135deg, rgba(109, 94, 252, 0.18), rgba(178, 73, 248, 0.08));
+  border: 1px solid rgba(109, 94, 252, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.subscription-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(109, 94, 252, 0.3), transparent 70%);
+  pointer-events: none;
+}
+
+.subscription-info h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.subscription-info p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.subscription-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--success-soft);
+  color: var(--success);
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subscription-badge.trial {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.subscription-badge.free {
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+}
+
+.subscription-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(109, 94, 252, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+
+.dashboard-ads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dashboard-ad-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all var(--transition-fast);
+}
+
+.dashboard-ad-item:hover {
+  border-color: var(--border-medium);
+}
+
+.dashboard-ad-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.dashboard-ad-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-ad-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-ad-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dashboard-ad-status {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-active {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.status-expired {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.status-trial {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.dashboard-ad-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ======================================================================
+   MODALS
+   ====================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 14, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  overflow-y: auto;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 520px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px) scale(0.97);
+  transition: transform var(--transition-base);
+  position: relative;
+  margin: auto;
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-lg { max-width: 720px; }
+.modal-xl { max-width: 900px; }
+
+.modal-header {
+  padding: 24px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.modal-subtitle {
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.modal-close:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-color: rgba(255, 77, 109, 0.3);
+}
+
+.modal-body {
+  padding: 24px 28px;
+}
+
+.modal-footer {
+  padding: 0 28px 28px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Auth tabs */
+.auth-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.auth-tab.active {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+/* Ad detail modal */
+.ad-detail-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+}
+
+.ad-detail-phone {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 26px;
+  border: 6px solid #1a2138;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.ad-detail-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 18px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.ad-detail-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 15%, rgba(255,255,255,0.22), transparent 55%);
+}
+
+.ad-detail-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.ad-detail-text {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.92;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.ad-detail-cta {
+  padding: 10px 22px;
+  background: #fff;
+  color: #0a0e1a;
+  border-radius: var(--radius-full);
+  font-size: 12.5px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.ad-detail-info h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.ad-detail-info p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.ad-detail-link-box {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--brand-accent);
+  word-break: break-all;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ad-detail-link-box svg { flex-shrink: 0; }
+
+.ad-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.ad-detail-stat {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  text-align: center;
+}
+
+.ad-detail-stat-value {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.ad-detail-stat-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+/* Trial activation */
+.trial-hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.trial-hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background: var(--warning-soft);
+  border: 1px solid rgba(255, 181, 71, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 16px;
+}
+
+.trial-hero h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.trial-hero p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.trial-plan-summary {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.trial-plan-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.trial-plan-row:not(:last-child) {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.trial-plan-row span:first-child { color: var(--text-tertiary); }
+.trial-plan-row span:last-child { font-weight: 600; }
+
+.trial-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--warning);
+  background: var(--warning-soft);
+  padding: 10px;
+  border-radius: var(--radius-md);
+  margin-top: 16px;
+}
+
+/* Toast */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  max-width: calc(100% - 48px);
+}
+
+.toast {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-lg);
+  animation: toastIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+  min-width: 260px;
+  max-width: 380px;
+  font-size: 13.5px;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(40px) scale(0.9); }
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.toast.toast-out {
+  animation: toastOut 0.3s ease forwards;
+}
+
+@keyframes toastOut {
+  to { opacity: 0; transform: translateX(40px) scale(0.9); }
+}
+
+.toast-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.toast.success .toast-icon { background: var(--success-soft); color: var(--success); }
+.toast.error .toast-icon { background: var(--danger-soft); color: var(--danger); }
+.toast.warning .toast-icon { background: var(--warning-soft); color: var(--warning); }
+.toast.info .toast-icon { background: var(--info-soft); color: var(--info); }
+
+.toast-message {
+  flex: 1;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 60px 0 32px;
+  margin-top: 60px;
+  background: var(--bg-secondary);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.footer-brand p {
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+  line-height: 1.7;
+  margin: 14px 0 20px;
+  max-width: 320px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all var(--transition-fast);
+}
+
+.footer-social a:hover {
+  background: var(--brand-gradient);
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col a {
+  font-size: 13.5px;
+  color: var(--text-tertiary);
+}
+
+.footer-col a:hover { color: var(--brand-accent); }
+
+.footer-bottom {
+  padding-top: 28px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Scroll to top */
+.scroll-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--transition-base);
+  font-size: 20px;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* User menu */
+.user-menu {
+  position: relative;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  border: 2px solid var(--border-medium);
+  transition: all var(--transition-fast);
+}
+
+.user-avatar:hover { border-color: var(--brand-accent); }
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  min-width: 220px;
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition-fast);
+  z-index: 100;
+}
+
+.user-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.user-dropdown-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 6px;
+}
+
+.user-dropdown-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.user-dropdown-email {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-dropdown-item {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all var(--transition-fast);
+}
+
+.user-dropdown-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.user-dropdown-item.danger { color: var(--danger); }
+.user-dropdown-item.danger:hover { background: var(--danger-soft); }
+
+/* Loading spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Views / SPA sections */
+.view {
+  display: none;
+  animation: viewIn 0.4s ease;
+}
+
+.view.active { display: block; }
+
+@keyframes viewIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.view-with-header {
+  padding-top: calc(var(--header-height) + 40px);
+}
+
+/* Category grid on home */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.category-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.category-card:hover {
+  border-color: var(--brand-primary);
+  background: var(--bg-tertiary);
+  transform: translateY(-3px);
+}
+
+.category-card-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.category-card-name {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.category-card-count {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* How it works */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.how-step {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 30px 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-step-num {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--bg-tertiary);
+  line-height: 1;
+  z-index: 0;
+}
+
+.how-step-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--brand-gradient-soft);
+  border: 1px solid rgba(109, 94, 252, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.how-step h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.how-step p {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======================================================================
+   RESPONSIVE
+   ====================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .hero-visual { min-height: 460px; }
+  .create-ad-layout { grid-template-columns: 1fr; }
+  .preview-panel { position: static; }
+  .ad-detail-layout { grid-template-columns: 1fr; }
+  .ad-detail-phone { max-width: 260px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.featured { transform: none; }
+  .price-card.featured:hover { transform: translateY(-4px); }
+  .hero-stats { gap: 28px; }
+  .form-row { grid-template-columns: 1fr; }
+  .header-actions .btn:not(.btn-icon) { padding: 9px 16px; font-size: 13px; }
+}
+
+@media (max-width: 640px) {
+  :root { --header-height: 64px; }
+  .container { padding: 0 18px; }
+  .section { padding: 56px 0; }
+  .hero { padding: calc(var(--header-height) + 40px) 0 56px; }
+  .hero-title { font-size: clamp(30px, 8vw, 44px); }
+  .hero-cta .btn { flex: 1; }
+  .hero-stats { gap: 22px; }
+  .hero-stat-value { font-size: 24px; }
+  .hero-stat-label { font-size: 12px; }
+  .hero-visual { min-height: 380px; }
+  .hero-phone { width: 220px; }
+  .hero-float { padding: 10px 14px; }
+  .hero-float-icon { width: 34px; height: 34px; font-size: 16px; }
+  .hero-float-value { font-size: 14px; }
+  .hero-float-label { font-size: 10.5px; }
+  .hero-float-1 { left: -5px; }
+  .hero-float-2 { right: -5px; }
+  .hero-float-3 { display: none; }
+  .ads-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ad-card-body { padding: 12px 14px; }
+  .ad-card-title { font-size: 13.5px; }
+  .ad-card-stats { font-size: 11px; gap: 10px; }
+  .ad-card-actions { padding: 0 14px 14px; }
+  .form-card { padding: 22px 20px; }
+  .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
+  .modal-footer { padding-left: 20px; padding-right: 20px; }
+  .modal { max-height: 88vh; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .toast-container { bottom: 16px; right: 16px; left: 16px; }
+  .toast { min-width: 0; max-width: 100%; }
+  .billing-tab { padding: 9px 16px; font-size: 12.5px; }
+  .price-card { padding: 26px 22px; }
+  .subscription-card { padding: 20px; }
+  .subscription-actions { width: 100%; }
+  .subscription-actions .btn { flex: 1; }
+  .dashboard-ad-item { flex-wrap: wrap; }
+  .dashboard-ad-actions { width: 100%; }
+  .dashboard-ad-actions .btn { flex: 1; }
+  .ad-detail-stats { grid-template-columns: 1fr; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .how-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+  .ads-grid { grid-template-columns: 1fr; }
+  .hero-float-1, .hero-float-2 { display: none; }
+}
+
+/* ======================================================================
+   SCROLLBAR
+   ====================================================================== */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 5px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover { background: #2a3354; }
+
+::selection {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+/* Print */
+@media print {
+  .header, .footer, .scroll-top, .toast-container { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <div class="logo" onclick="navigateTo('home')">
+      <div class="logo-mark">📢</div>
+      <span>Iklan<span class="text-gradient">Pro</span></span>
+    </div>
+
+    <nav class="nav" id="mainNav">
+      <a class="nav-link active" data-view="home" onclick="navigateTo('home')">Beranda</a>
+      <a class="nav-link" data-view="browse" onclick="navigateTo('browse')">Jelajahi Iklan</a>
+      <a class="nav-link" data-view="create" onclick="navigateTo('create')">Buat Iklan</a>
+      <a class="nav-link" data-view="pricing" onclick="navigateTo('pricing')">Harga</a>
+      <a class="nav-link" data-view="dashboard" onclick="navigateTo('dashboard')">Dashboard</a>
+    </nav>
+
+    <div class="header-actions" id="headerActions">
+      <button class="btn btn-secondary btn-sm" onclick="openAuthModal('login')" id="btnLogin">Masuk</button>
+      <button class="btn btn-primary btn-sm" onclick="openAuthModal('signup')" id="btnSignup">Daftar Gratis</button>
+      <div class="user-menu hidden" id="userMenu">
+        <div class="user-avatar" id="userAvatar" onclick="toggleUserDropdown()">U</div>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-header">
+            <div class="user-dropdown-name" id="userNameDropdown">User</div>
+            <div class="user-dropdown-email" id="userEmailDropdown">user@email.com</div>
+          </div>
+          <div class="user-dropdown-item" onclick="navigateTo('dashboard');closeUserDropdown()">
+            <span>📊</span> Dashboard
+          </div>
+          <div class="user-dropdown-item" onclick="navigateTo('create');closeUserDropdown()">
+            <span>➕</span> Buat Iklan Baru
+          </div>
+          <div class="user-dropdown-item" onclick="navigateTo('pricing');closeUserDropdown()">
+            <span>💎</span> Langganan
+          </div>
+          <div class="user-dropdown-item danger" onclick="logout()">
+            <span>🚪</span> Keluar
+          </div>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobileMenuBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav (drawer) -->
+<div id="mobileNavDrawer" style="display:none; position:fixed; inset:0; z-index:999; background:rgba(4,6,14,0.8); backdrop-filter:blur(8px);" onclick="toggleMobileMenu()">
+  <div style="position:absolute; top:var(--header-height); left:0; right:0; background:var(--bg-secondary); border-bottom:1px solid var(--border-medium); padding:16px 24px; display:flex; flex-direction:column; gap:6px;" onclick="event.stopPropagation()">
+    <a class="nav-link" onclick="navigateTo('home');toggleMobileMenu()">🏠 Beranda</a>
+    <a class="nav-link" onclick="navigateTo('browse');toggleMobileMenu()">🔍 Jelajahi Iklan</a>
+    <a class="nav-link" onclick="navigateTo('create');toggleMobileMenu()">➕ Buat Iklan</a>
+    <a class="nav-link" onclick="navigateTo('pricing');toggleMobileMenu()">💎 Harga</a>
+    <a class="nav-link" onclick="navigateTo('dashboard');toggleMobileMenu()">📊 Dashboard</a>
+  </div>
+</div>
+
+<!-- ==================== MAIN ==================== -->
+<main>
+
+  <!-- ============ VIEW: HOME ============ -->
+  <section class="view active" id="view-home">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              <span>500+ Template Iklan Siap Pakai</span>
+            </div>
+            <h1 class="hero-title">
+              Pasang Iklan <span class="text-gradient">Premium</span> dalam 60 Detik
+            </h1>
+            <p class="hero-subtitle">
+              Platform iklan digital untuk promosi bisnis Anda. Pilih dari 500+ template, 
+              pasang link yang bisa diklik, dan jangkau ribuan pengunjung. Coba gratis 3 hari!
+            </p>
+            <div class="hero-cta">
+              <button class="btn btn-primary btn-lg" onclick="navigateTo('create')">
+                🚀 Mulai Buat Iklan
+              </button>
+              <button class="btn btn-ghost btn-lg" onclick="navigateTo('pricing')">
+                Lihat Harga
+              </button>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-value" id="statAdsCount">0</div>
+                <div class="hero-stat-label">Iklan Aktif</div>
+              </div>
+              <div>
+                <div class="hero-stat-value" id="statViewsCount">0</div>
+                <div class="hero-stat-label">Total Tayangan</div>
+              </div>
+              <div>
+                <div class="hero-stat-value" id="statUsersCount">0</div>
+                <div class="hero-stat-label">Pengiklan</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-phone">
+              <div class="hero-phone-notch"></div>
+              <div class="hero-phone-screen">
+                <div class="hero-phone-badge">PREMIUM</div>
+                <div class="hero-phone-title">Iklan Anda<br>Di Sini</div>
+                <div class="hero-phone-text">Jangkau ribuan pelanggan setiap hari dengan template premium</div>
+                <div class="hero-phone-btn">Kunjungi →</div>
+              </div>
+            </div>
+            <div class="hero-float hero-float-1">
+              <div class="hero-float-icon green">📈</div>
+              <div>
+                <div class="hero-float-value">+247%</div>
+                <div class="hero-float-label">Trafik</div>
+              </div>
+            </div>
+            <div class="hero-float hero-float-2">
+              <div class="hero-float-icon purple">⭐</div>
+              <div>
+                <div class="hero-float-value">4.9/5</div>
+                <div class="hero-float-label">Rating</div>
+              </div>
+            </div>
+            <div class="hero-float hero-float-3">
+              <div class="hero-float-icon blue">🎯</div>
+              <div>
+                <div class="hero-float-value">500+</div>
+                <div class="hero-float-label">Template</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-wrap">
+      <div class="marquee" id="marquee">
+        <span class="marquee-item">TOKOPEDIA</span>
+        <span class="marquee-item">SHOPEE</span>
+        <span class="marquee-item">BUKALAPAK</span>
+        <span class="marquee-item">TRAVELOKA</span>
+        <span class="marquee-item">GOJEK</span>
+        <span class="marquee-item">GRAB</span>
+        <span class="marquee-item">BLIBLI</span>
+        <span class="marquee-item">LAZADA</span>
+        <span class="marquee-item">TOKOPEDIA</span>
+        <span class="marquee-item">SHOPEE</span>
+        <span class="marquee-item">BUKALAPAK</span>
+        <span class="marquee-item">TRAVELOKA</span>
+        <span class="marquee-item">GOJEK</span>
+        <span class="marquee-item">GRAB</span>
+        <span class="marquee-item">BLIBLI</span>
+        <span class="marquee-item">LAZADA</span>
+      </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">🎯 Kategori Populer</div>
+          <h2 class="section-title">Jelajahi Berdasarkan Kategori</h2>
+          <p class="section-subtitle">Temukan iklan yang relevan dengan kebutuhan Anda</p>
+        </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="section" style="background: var(--bg-secondary); border-top:1px solid var(--border-subtle); border-bottom:1px solid var(--border-subtle);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">✨ Cara Kerja</div>
+          <h2 class="section-title">Mulai dalam 3 Langkah Mudah</h2>
+        </div>
+        <div class="how-grid">
+          <div class="how-step">
+            <div class="how-step-num">01</div>
+            <div class="how-step-icon">📝</div>
+            <h3>Buat Akun</h3>
+            <p>Daftar gratis dalam hitungan detik dengan email Anda. Tidak perlu kartu kredit.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">02</div>
+            <div class="how-step-icon">🎨</div>
+            <h3>Pilih Template & Isi Data</h3>
+            <p>Pilih dari 500+ template premium, isi judul, deskripsi, dan link tujuan iklan Anda.</p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">03</div>
+            <div class="how-step-icon">🚀</div>
+            <h3>Publikasikan & Pantau</h3>
+            <p>Iklan langsung tayang! Pantau performa (views & clicks) secara real-time di dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured ads -->
+    <div class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">🔥 Iklan Terbaru</div>
+          <h2 class="section-title">Iklan yang Sedang Tayang</h2>
+          <p class="section-subtitle">Klik iklan untuk melihat detail dan mengunjungi link tujuan</p>
+        </div>
+        <div class="ads-grid" id="featuredAdsGrid"></div>
+        <div class="text-center" style="margin-top: 40px;">
+          <button class="btn btn-secondary" onclick="navigateTo('browse')">
+            Lihat Semua Iklan →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="section">
+      <div class="container">
+        <div style="background: var(--brand-gradient); border-radius: var(--radius-xl); padding: 60px 40px; text-align: center; position: relative; overflow: hidden;">
+          <div style="position:absolute; inset:0; background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.2), transparent 50%), radial-gradient(circle at 80% 70%, rgba(0,0,0,0.15), transparent 50%);"></div>
+          <div style="position: relative; z-index: 1;">
+            <h2 style="font-size: clamp(26px, 4vw, 38px); margin-bottom: 14px; color:#fff;">Siap Meningkatkan Bisnis Anda?</h2>
+            <p style="font-size: 16px; opacity: 0.92; margin-bottom: 28px; color:#fff; max-width: 600px; margin-left:auto; margin-right:auto;">
+              Gabung dengan ribuan pengiklan yang telah merasakan manfaatnya. Coba gratis 3 hari, tanpa kartu kredit.
+            </p>
+            <button class="btn btn-lg" style="background: #fff; color: #0a0e1a; font-weight: 700;" onclick="navigateTo('pricing')">
+              Mulai Uji Coba Gratis →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIEW: BROWSE ============ -->
+  <section class="view view-with-header" id="view-browse">
+    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Jelajahi Iklan</h1>
+          <p class="dashboard-subtitle">Temukan iklan menarik dari para pengiklan</p>
+        </div>
+      </div>
+      <div class="feed-controls">
+        <div class="search-bar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Cari iklan berdasarkan judul atau kata kunci..." oninput="handleSearch(this.value)">
+        </div>
+        <div class="filters-row" id="filterChips"></div>
+      </div>
+      <div class="ads-grid" id="browseAdsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ VIEW: CREATE ============ -->
+  <section class="view view-with-header" id="view-create">
+    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Buat Iklan Baru</h1>
+          <p class="dashboard-subtitle">Isi form di bawah untuk mempublikasikan iklan Anda</p>
+        </div>
+      </div>
+
+      <div class="create-ad-layout">
+        <!-- Form -->
+        <div class="form-card">
+          <!-- Section 1: Info Dasar -->
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="form-section-num">1</span>
+              Informasi Dasar
+            </div>
+            <div class="form-group">
+              <label class="form-label">Judul Iklan <span class="required">*</span></label>
+              <input type="text" class="form-input" id="adTitle" placeholder="Contoh: Diskon 50% Sepatu Sneakers Premium" maxlength="60" oninput="updatePreview();updateCharCounter('adTitle','titleCounter',60)">
+              <div class="char-counter" id="titleCounter">0/60</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Deskripsi Singkat <span class="required">*</span></label>
+              <textarea class="form-textarea" id="adDescription" placeholder="Jelaskan produk atau layanan Anda secara singkat dan menarik..." maxlength="150" oninput="updatePreview();updateCharCounter('adDescription','descCounter',150)"></textarea>
+              <div class="char-counter" id="descCounter">0/150</div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Kategori <span class="required">*</span></label>
+                <select class="form-select" id="adCategory" onchange="updatePreview()">
+                  <option value="">Pilih Kategori</option>
+                  <option value="teknologi">💻 Teknologi</option>
+                  <option value="fashion">👗 Fashion</option>
+                  <option value="makanan">🍔 Makanan & Minuman</option>
+                  <option value="kesehatan">💊 Kesehatan</option>
+                  <option value="pendidikan">🎓 Pendidikan</option>
+                  <option value="hiburan">🎬 Hiburan</option>
+                  <option value="bisnis">💼 Bisnis</option>
+                  <option value="otomotif">🚗 Otomotif</option>
+                  <option value="travel">✈️ Travel</option>
+                  <option value="lainnya">📦 Lainnya</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Teks Tombol (CTA) <span class="required">*</span></label>
+                <input type="text" class="form-input" id="adCta" placeholder="Kunjungi" value="Kunjungi" maxlength="20" oninput="updatePreview()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Link -->
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="form-section-num">2</span>
+              Link Tujuan
+            </div>
+            <div class="form-group">
+              <label class="form-label">URL Tujuan <span class="required">*</span></label>
+              <input type="url" class="form-input" id="adLink" placeholder="https://website-anda.com/promo" oninput="updatePreview()">
+              <div class="form-hint">🔗 Pengunjung akan diarahkan ke URL ini saat mengklik iklan</div>
+            </div>
+          </div>
+
+          <!-- Section 3: Template -->
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="form-section-num">3</span>
+              Pilih Template <span style="font-size:12px;color:var(--text-tertiary);font-weight:400;margin-left:6px;">(500+ pilihan)</span>
+            </div>
+            <div class="template-picker-header">
+              <input type="text" class="template-search" id="templateSearch" placeholder="Cari template..." oninput="filterTemplates(this.value)">
+              <span class="template-count" id="templateCount">500 template</span>
+            </div>
+            <div class="template-grid" id="templateGrid"></div>
+          </div>
+
+          <!-- Submit -->
+          <div style="display:flex; gap:12px; margin-top: 28px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-lg" style="flex:1; min-width:200px;" onclick="submitAd()">
+              🚀 Publikasikan Iklan
+            </button>
+            <button class="btn btn-secondary btn-lg" onclick="resetCreateForm()">Reset</button>
+          </div>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-panel">
+          <div class="preview-panel-title">
+            <span>Preview Iklan</span>
+            <span class="preview-badge-live">LIVE</span>
+          </div>
+          <div class="preview-phone">
+            <div class="preview-screen" id="previewScreen">
+              <div class="preview-title" id="previewTitle">Judul Iklan Anda</div>
+              <div class="preview-text" id="previewText">Deskripsi iklan akan muncul di sini</div>
+              <div class="preview-cta" id="previewCta">Kunjungi →</div>
+            </div>
+          </div>
+          <div class="preview-info">
+            <div class="preview-info-row">
+              <span>Kategori</span>
+              <span id="previewCategory">-</span>
+            </div>
+            <div class="preview-info-row">
+              <span>Template</span>
+              <span id="previewTemplate">-</span>
+            </div>
+            <div class="preview-info-row" style="flex-direction:column; gap:6px;">
+              <span>Link Tujuan</span>
+              <div class="preview-link-preview" id="previewLink">Belum ada link</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIEW: PRICING ============ -->
+  <section class="view view-with-header" id="view-pricing">
+    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+      <div class="section-header" style="margin-bottom: 32px;">
+        <div class="section-tag">💎 Paket Langganan</div>
+        <h1 class="section-title">Pilih Paket Sesuai Kebutuhan</h1>
+        <p class="section-subtitle">Harga terjangkau dengan fitur lengkap. Mulai dari harian, bulanan, hingga tahunan.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="billing-toggle">
+          <button class="billing-tab active" data-billing="daily" onclick="setBilling('daily')">Harian</button>
+          <button class="billing-tab" data-billing="monthly" onclick="setBilling('monthly')">Bulanan <span class="save-tag">-55%</span></button>
+          <button class="billing-tab" data-billing="yearly" onclick="setBilling('yearly')">Tahunan <span class="save-tag">-65%</span></button>
+        </div>
+      </div>
+
+      <div class="pricing-grid" id="pricingGrid"></div>
+
+      <div class="trial-note">
+        <span style="font-size:24px;">🎁</span>
+        <div>
+          <strong>Uji coba GRATIS 3 hari!</strong> Coba fitur premium tanpa biaya. Setelah 3 hari, 
+          lanjutkan berlangganan untuk tetap menikmati semua fitur. Tanpa kartu kredit.
+        </div>
+        <button class="btn btn-sm" style="background:var(--warning);color:#1a1400;font-weight:700;" onclick="openTrialModal('monthly')">
+          Mulai Trial
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIEW: DASHBOARD ============ -->
+  <section class="view view-with-header" id="view-dashboard">
+    <div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Dashboard</h1>
+          <p class="dashboard-subtitle" id="dashboardGreeting">Selamat datang kembali!</p>
+        </div>
+        <button class="btn btn-primary" onclick="navigateTo('create')">➕ Buat Iklan Baru</button>
+      </div>
+
+      <!-- Subscription card -->
+      <div class="subscription-card" id="subscriptionCard">
+        <div class="subscription-info">
+          <div class="subscription-badge free" id="subBadge">GRATIS</div>
+          <h3 id="subTitle">Paket Free</h3>
+          <p id="subDesc">Anda belum berlangganan. Mulai trial gratis 3 hari untuk fitur premium.</p>
+        </div>
+        <div class="subscription-actions">
+          <button class="btn btn-primary" onclick="navigateTo('pricing')">💎 Upgrade Paket</button>
+          <button class="btn btn-secondary" onclick="openTrialModal('monthly')">🎁 Coba Trial</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--brand-gradient-soft);">📢</div>
+          <div class="stat-value" id="statsTotalAds">0</div>
+          <div class="stat-label">Total Iklan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--info-soft);">👁️</div>
+          <div class="stat-value" id="statsTotalViews">0</div>
+          <div class="stat-label">Total Tayangan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--success-soft);">🖱️</div>
+          <div class="stat-value" id="statsTotalClicks">0</div>
+          <div class="stat-label">Total Klik</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: var(--warning-soft);">📈</div>
+          <div class="stat-value" id="statsCtr">0%</div>
+          <div class="stat-label">CTR Rata-rata</div>
+        </div>
+      </div>
+
+      <!-- My Ads -->
+      <h2 style="font-family:var(--font-display); font-size:20px; margin-bottom:16px;">Iklan Saya</h2>
+      <div class="dashboard-ads-list" id="dashboardAdsList"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark">📢</div>
+          <span>Iklan<span class="text-gradient">Pro</span></span>
+        </div>
+        <p>Platform iklan digital premium untuk bisnis Anda. Pasang iklan, pilih template, dan jangkau ribuan pelanggan dengan mudah.</p>
+        <div class="footer-social">
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">🐦</a>
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Produk</h4>
+        <ul>
+          <li><a onclick="navigateTo('create')">Buat Iklan</a></li>
+          <li><a onclick="navigateTo('browse')">Jelajahi Iklan</a></li>
+          <li><a onclick="navigateTo('pricing')">Harga</a></li>
+          <li><a href="#">Template</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Karier</a></li>
+          <li><a href="#">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+          <li><a href="#">Kebijakan Refund</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2025 IklanPro. Semua hak dilindungi.</div>
+      <div>Dibuat dengan ❤️ untuk pengiklan Indonesia</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+<!-- ==================== MODALS ==================== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+
+  <!-- Auth Modal -->
+  <div class="modal" id="modalAuth" style="display:none;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="authTitle">Selamat Datang Kembali</div>
+        <div class="modal-subtitle" id="authSubtitle">Masuk untuk mengelola iklan Anda</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-auth="login" onclick="switchAuthTab('login')">Masuk</button>
+        <button class="auth-tab" data-auth="signup" onclick="switchAuthTab('signup')">Daftar</button>
+      </div>
+      <div id="authSignupFields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Nama Lengkap <span class="required">*</span></label>
+          <input type="text" class="form-input" id="authName" placeholder="Nama Anda">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email <span class="required">*</span></label>
+        <input type="email" class="form-input" id="authEmail" placeholder="nama@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password <span class="required">*</span></label>
+        <input type="password" class="form-input" id="authPassword" placeholder="Minimal 6 karakter">
+      </div>
+      <div class="form-hint" style="margin-bottom:16px;">💡 Ini demo — data disimpan di browser Anda (localStorage).</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+      <button class="btn btn-primary" id="authSubmitBtn" onclick="submitAuth()">Masuk</button>
+    </div>
+  </div>
+
+  <!-- Trial Modal -->
+  <div class="modal" id="modalTrial" style="display:none;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">🎁 Uji Coba Gratis 3 Hari</div>
+        <div class="modal-subtitle">Coba semua fitur premium tanpa biaya</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="trial-hero">
+        <div class="trial-hero-icon">🎁</div>
+        <h3>Aktifkan Trial 3 Hari</h3>
+        <p>Nikmati semua fitur paket pilihan Anda secara gratis selama 3 hari</p>
+      </div>
+      <div class="trial-plan-summary" id="trialPlanSummary"></div>
+      <div class="form-group">
+        <label class="form-label">Pilih Paket Trial</label>
+        <select class="form-select" id="trialPlanSelect" onchange="updateTrialSummary()">
+          <option value="monthly">Bulanan - Rp 199.000</option>
+          <option value="yearly">Tahunan - Rp 1.499.000</option>
+        </select>
+      </div>
+      <div class="trial-countdown">
+        ⏱️ Trial berakhir otomatis setelah 3 hari. Tidak ada tagihan otomatis.
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()">Nanti Saja</button>
+      <button class="btn btn-success" onclick="activateTrial()">Aktifkan Trial Sekarang</button>
+    </div>
+  </div>
+
+  <!-- Subscribe Modal -->
+  <div class="modal" id="modalSubscribe" style="display:none;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">💎 Berlangganan</div>
+        <div class="modal-subtitle" id="subscribeSubtitle">Selesaikan pembayaran untuk mengaktifkan paket</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="trial-plan-summary" id="subscribeSummary"></div>
+      <div class="form-group">
+        <label class="form-label">Metode Pembayaran</label>
+        <select class="form-select" id="paymentMethod">
+          <option value="transfer">🏦 Transfer Bank</option>
+          <option value="ewallet">📱 E-Wallet (OVO/Gopay/Dana)</option>
+          <option value="qris">📲 QRIS</option>
+          <option value="cc">💳 Kartu Kredit</option>
+        </select>
+      </div>
+      <div class="form-hint" style="margin-bottom:8px;">💡 Demo — pembayaran disimulasikan, tidak ada transaksi nyata.</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+      <button class="btn btn-primary" onclick="processSubscription()">Bayar & Aktifkan</button>
+    </div>
+  </div>
+
+  <!-- Ad Detail Modal -->
+  <div class="modal modal-lg" id="modalAdDetail" style="display:none;">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Detail Iklan</div>
+        <div class="modal-subtitle">Klik tombol kunjungi untuk membuka website</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="ad-detail-layout">
+        <div class="ad-detail-phone">
+          <div class="ad-detail-visual" id="detailVisual">
+            <div class="ad-detail-title" id="detailTitle">Judul</div>
+            <div class="ad-detail-text" id="detailText">Deskripsi</div>
+            <div class="ad-detail-cta" id="detailCta">Kunjungi →</div>
+          </div>
+        </div>
+        <div class="ad-detail-info">
+          <h3 id="detailInfoTitle">Judul Iklan</h3>
+          <p id="detailInfoDesc">Deskripsi lengkap iklan akan ditampilkan di sini.</p>
+          <div class="ad-detail-link-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <span id="detailLink">https://example.com</span>
+          </div>
+          <div class="ad-detail-stats">
+            <div class="ad-detail-stat">
+              <div class="ad-detail-stat-value" id="detailViews">0</div>
+              <div class="ad-detail-stat-label">Views</div>
+            </div>
+            <div class="ad-detail-stat">
+              <div class="ad-detail-stat-value" id="detailClicks">0</div>
+              <div class="ad-detail-stat-label">Clicks</div>
+            </div>
+            <div class="ad-detail-stat">
+              <div class="ad-detail-stat-value" id="detailCtr">0%</div>
+              <div class="ad-detail-stat-label">CTR</div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" id="detailVisitBtn" onclick="visitAdFromModal()">
+            🌐 Kunjungi Website
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* ======================================================================
+   STATE & CONFIG
+   ====================================================================== */
+const STORAGE_KEY = 'iklanpro_v1';
+
+const CATEGORIES = [
+  { id: 'teknologi', name: 'Teknologi', icon: '💻' },
+  { id: 'fashion', name: 'Fashion', icon: '👗' },
+  { id: 'makanan', name: 'Makanan', icon: '🍔' },
+  { id: 'kesehatan', name: 'Kesehatan', icon: '💊' },
+  { id: 'pendidikan', name: 'Pendidikan', icon: '🎓' },
+  { id: 'hiburan', name: 'Hiburan', icon: '🎬' },
+  { id: 'bisnis', name: 'Bisnis', icon: '💼' },
+  { id: 'otomotif', name: 'Otomotif', icon: '🚗' },
+  { id: 'travel', name: 'Travel', icon: '✈️' },
+  { id: 'lainnya', name: 'Lainnya', icon: '📦' },
+];
+
+const PLANS = {
+  daily: {
+    id: 'daily',
+    name: 'Harian',
+    price: 15000,
+    period: 'hari',
+    desc: 'Cocok untuk promosi kilat',
+    features: [
+      { text: '5 iklan aktif', active: true },
+      { text: '100 template pilihan', active: true },
+      { text: 'Statistik dasar', active: true },
+      { text: 'Link aktif 1x klik', active: true },
+      { text: 'Prioritas tampil', active: false },
+      { text: 'Semua 500+ template', active: false },
+      { text: 'Custom domain', active: false },
+    ],
+  },
+  monthly: {
+    id: 'monthly',
+    name: 'Bulanan',
+    price: 199000,
+    originalPrice: 450000,
+    period: 'bulan',
+    desc: 'Paling populer untuk UMKM',
+    popular: true,
+    features: [
+      { text: '25 iklan aktif', active: true },
+      { text: 'Semua 500+ template', active: true },
+      { text: 'Statistik lengkap real-time', active: true },
+      { text: 'Prioritas tampil di feed', active: true },
+      { text: 'Link aktif unlimited klik', active: true },
+      { text: 'Akses template premium', active: true },
+      { text: 'Custom domain', active: false },
+    ],
+  },
+  yearly: {
+    id: 'yearly',
+    name: 'Tahunan',
+    price: 1499000,
+    originalPrice: 4500000,
+    period: 'tahun',
+    desc: 'Hemat maksimal untuk bisnis',
+    features: [
+      { text: 'Unlimited iklan aktif', active: true },
+      { text: 'Semua 500+ template', active: true },
+      { text: 'Statistik lengkap + export', active: true },
+      { text: 'Prioritas MAX tampil', active: true },
+      { text: 'Link aktif unlimited klik', active: true },
+      { text: 'Semua template premium', active: true },
+      { text: 'Custom domain + API', active: true },
+    ],
+  },
+};
+
+const state = {
+  user: null,
+  ads: [],
+  templates: [],
+  subscription: null,
+  trial: null,
+  currentView: 'home',
+  currentBilling: 'daily',
+  selectedTemplateId: null,
+  currentAdDetailId: null,
+  searchQuery: '',
+  categoryFilter: 'all',
+  sortBy: 'newest',
+};
+
+/* ======================================================================
+   UTILITY FUNCTIONS
+   ====================================================================== */
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2, 9);
+}
+
+function formatNumber(num) {
+  if (num >= 1000000) return (num / 1000000).toFixed(1).replace('.0','') + 'M';
+  if (num >= 1000) return (num / 1000).toFixed(1).replace('.0','') + 'K';
+  return num.toString();
+}
+
+function formatRupiah(num) {
+  return 'Rp ' + num.toLocaleString('id-ID');
+}
+
+function timeAgo(ts) {
+  const diff = Date.now() - ts;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return 'baru saja';
+  if (mins < 60) return mins + ' menit lalu';
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return hours + ' jam lalu';
+  const days = Math.floor(hours / 24);
+  if (days < 30) return days + ' hari lalu';
+  const months = Math.floor(days / 30);
+  return months + ' bulan lalu';
+}
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function normalizeUrl(url) {
+  if (!url) return '';
+  if (!/^https?:\/\//i.test(url)) return 'https://' + url;
+  return url;
+}
+
+function isValidUrl(url) {
+  try { new URL(normalizeUrl(url)); return true; } catch { return false; }
+}
+
+/* ======================================================================
+   PERSISTENCE
+   ====================================================================== */
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      user: state.user,
+      ads: state.ads,
+      subscription: state.subscription,
+      trial: state.trial,
+    }));
+  } catch (e) {
+    console.warn('Save failed', e);
+  }
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    state.user = data.user || null;
+    state.ads = data.ads || [];
+    state.subscription = data.subscription || null;
+    state.trial = data.trial || null;
+  } catch (e) {
+    console.warn('Load failed', e);
+  }
+}
+
+/* ======================================================================
+   TEMPLATE GENERATOR (500+ TEMPLATES)
+   ====================================================================== */
+function generateTemplates() {
+  const gradients = [
+    'linear-gradient(135deg, #6d5efc, #b249f8)',
+    'linear-gradient(135deg, #ff6b6b, #ff4ecd)',
+    'linear-gradient(135deg, #00d4ff, #6d5efc)',
+    'linear-gradient(135deg, #00e6a5, #00b88a)',
+    'linear-gradient(135deg, #ffb547, #ff6b6b)',
+    'linear-gradient(135deg, #b249f8, #ff4ecd)',
+    'linear-gradient(135deg, #ff4ecd, #ffb547)',
+    'linear-gradient(135deg, #0f2027, #203a43, #2c5364)',
+    'linear-gradient(135deg, #fc466b, #3f5efb)',
+    'linear-gradient(135deg, #00b4db, #0083b0)',
+    'linear-gradient(135deg, #f12711, #f5af19)',
+    'linear-gradient(135deg, #8e2de2, #4a00e0)',
+    'linear-gradient(135deg, #1f4037, #99f2c8)',
+    'linear-gradient(135deg, #ff9a9e, #fad0c4)',
+    'linear-gradient(135deg, #a18cd1, #fbc2eb)',
+    'linear-gradient(135deg, #fad0c4, #ffd1ff)',
+    'linear-gradient(135deg, #ffecd2, #fcb69f)',
+    'linear-gradient(135deg, #43cea2, #185a9d)',
+    'linear-gradient(135deg, #ff512f, #dd2476)',
+    'linear-gradient(135deg, #614385, #516395)',
+    'linear-gradient(135deg, #4568dc, #b06ab3)',
+    'linear-gradient(135deg, #ff9966, #ff5e62)',
+    'linear-gradient(135deg, #11998e, #38ef7d)',
+    'linear-gradient(135deg, #232526, #414345)',
+    'linear-gradient(135deg, #c31432, #240b36)',
+  ];
+
+  const fonts = [
+    { family: "'Space Grotesk', sans-serif", weight: 800, letter: '-0.02em' },
+    { family: "'Inter', sans-serif", weight: 700, letter: '-0.01em' },
+    { family: "'Inter', sans-serif", weight: 600, letter: '0em' },
+    { family: "'Space Grotesk', sans-serif", weight: 700, letter: '0.02em' },
+  ];
+
+  const layouts = ['centered', 'top', 'bottom', 'split', 'banner'];
+  const names = ['Neon', 'Aurora', 'Sunset', 'Ocean', 'Forest', 'Royal', 'Neon Pop', 'Cosmic', 'Velvet', 'Frost'];
+
+  const templates = [];
+  let id = 0;
+
+  for (let gi = 0; gi < gradients.length; gi++) {
+    for (let fi = 0; fi < fonts.length; fi++) {
+      for (let li = 0; li < layouts.length; li++) {
+        id++;
+        const nameIndex = (gi + fi + li) % names.length;
+        templates.push({
+          id,
+          gradient: gradients[gi],
+          font: fonts[fi],
+          layout: layouts[li],
+          name: `${names[nameIndex]} ${id}`,
+          paletteIndex: gi,
+        });
+      }
+    }
+  }
+  return templates; // 25 * 4 * 5 = 500
+}
+
+/* ======================================================================
+   TOASTS
+   ====================================================================== */
+function toast(message, type = 'info', duration = 3500) {
+  const container = document.getElementById('toastContainer');
+  const icons = { success: '✓', error: '✕', warning: '⚠', info: 'ℹ' };
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.innerHTML = `
+    <div class="toast-icon">${icons[type] || 'ℹ'}</div>
+    <div class="toast-message">${escapeHtml(message)}</div>
+  `;
+  container.appendChild(el);
+  setTimeout(() => {
+    el.classList.add('toast-out');
+    setTimeout(() => el.remove(), 300);
+  }, duration);
+}
+
+/* ======================================================================
+   NAVIGATION
+   ====================================================================== */
+function navigateTo(view) {
+  state.currentView = view;
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const target = document.getElementById('view-' + view);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.nav-link').forEach(l => {
+    l.classList.toggle('active', l.dataset.view === view);
+  });
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  if (view === 'browse') renderBrowseAds();
+  if (view === 'dashboard') renderDashboard();
+  if (view === 'pricing') renderPricing();
+  if (view === 'create') renderTemplatePicker();
+
+  closeUserDropdown();
+}
+
+function toggleMobileMenu() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  drawer.style.display = drawer.style.display === 'none' ? 'block' : 'none';
+}
+
+/* ======================================================================
+   HEADER SCROLL
+   ====================================================================== */
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('header');
+  header.classList.toggle('scrolled', window.scrollY > 20);
+  const scrollTop = document.getElementById('scrollTop');
+  scrollTop.classList.toggle('visible', window.scrollY > 400);
+});
+
+/* ======================================================================
+   AUTH
+   ====================================================================== */
+function openAuthModal(tab = 'login') {
+  switchAuthTab(tab);
+  openModal('modalAuth');
+}
+
+function switchAuthTab(tab) {
+  document.querySelectorAll('.auth-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.auth === tab);
+  });
+  document.getElementById('authSignupFields').style.display = tab === 'signup' ? 'block' : 'none';
+  document.getElementById('authTitle').textContent = tab === 'signup' ? 'Buat Akun Baru' : 'Selamat Datang Kembali';
+  document.getElementById('authSubtitle').textContent = tab === 'signup' ? 'Daftar gratis dan mulai pasang iklan' : 'Masuk untuk mengelola iklan Anda';
+  document.getElementById('authSubmitBtn').textContent = tab === 'signup' ? 'Daftar Sekarang' : 'Masuk';
+  document.getElementById('authSubmitBtn').dataset.mode = tab;
+}
+
+function submitAuth() {
+  const mode = document.getElementById('authSubmitBtn').dataset.mode || 'login';
+  const email = document.getElementById('authEmail').value.trim();
+  const password = document.getElementById('authPassword').value;
+  const name = document.getElementById('authName').value.trim();
+
+  if (!email || !password) {
+    toast('Email dan password wajib diisi', 'error');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    toast('Format email tidak valid', 'error');
+    return;
+  }
+  if (password.length < 6) {
+    toast('Password minimal 6 karakter', 'error');
+    return;
+  }
+  if (mode === 'signup' && !name) {
+    toast('Nama lengkap wajib diisi', 'error');
+    return;
+  }
+
+  state.user = {
+    id: uid(),
+    name: mode === 'signup' ? name : (email.split('@')[0]),
+    email,
+    createdAt: Date.now(),
+  };
+  saveState();
+  updateAuthUI();
+  closeModal();
+  toast(mode === 'signup' ? `Selamat datang, ${state.user.name}!` : `Selamat datang kembali, ${state.user.name}!`, 'success');
+  navigateTo('dashboard');
+}
+
+function logout() {
+  if (!confirm('Yakin ingin keluar?')) return;
+  state.user = null;
+  saveState();
+  updateAuthUI();
+  closeUserDropdown();
+  navigateTo('home');
+  toast('Anda telah keluar', 'info');
+}
+
+function updateAuthUI() {
+  const btnLogin = document.getElementById('btnLogin');
+  const btnSignup = document.getElementById('btnSignup');
+  const userMenu = document.getElementById('userMenu');
+
+  if (state.user) {
+    btnLogin.classList.add('hidden');
+    btnSignup.classList.add('hidden');
+    userMenu.classList.remove('hidden');
+    document.getElementById('userAvatar').textContent = state.user.name.charAt(0).toUpperCase();
+    document.getElementById('userNameDropdown').textContent = state.user.name;
+    document.getElementById('userEmailDropdown').textContent = state.user.email;
+    document.getElementById('dashboardGreeting').textContent = `Halo, ${state.user.name}! 👋`;
+  } else {
+    btnLogin.classList.remove('hidden');
+    btnSignup.classList.remove('hidden');
+    userMenu.classList.add('hidden');
+    document.getElementById('dashboardGreeting').textContent = 'Silakan masuk untuk melihat dashboard';
+  }
+}
+
+function toggleUserDropdown() {
+  document.getElementById('userDropdown').classList.toggle('open');
+}
+
+function closeUserDropdown() {
+  document.getElementById('userDropdown').classList.remove('open');
+}
+
+document.addEventListener('click', (e) => {
+  const userMenu = document.getElementById('userMenu');
+  if (userMenu && !userMenu.contains(e.target)) closeUserDropdown();
+});
+
+/* ======================================================================
+   MODALS
+   ====================================================================== */
+function openModal(id) {
+  document.getElementById('modalOverlay').classList.add('active');
+  document.getElementById(id).style.display = 'block';
+  document.body.classList.add('modal-open');
+}
+
+function closeModal(e) {
+  if (e && e.target !== e.currentTarget && e.target.id !== 'modalOverlay') {
+    if (!e.target.classList.contains('modal-close')) return;
+  }
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+  document.body.classList.remove('modal-open');
+}
+
+/* ======================================================================
+   TEMPLATE PICKER
+   ====================================================================== */
+function renderTemplatePicker() {
+  if (state.templates.length === 0) {
+    state.templates = generateTemplates();
+  }
+  renderTemplateGrid(state.templates);
+  if (!state.selectedTemplateId && state.templates.length > 0) {
+    selectTemplate(state.templates[0].id);
+  }
+  document.getElementById('templateCount').textContent = state.templates.length + ' template';
+}
+
+function renderTemplateGrid(templates) {
+  const grid = document.getElementById('templateGrid');
+  if (!grid) return;
+
+  if (templates.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:30px; color:var(--text-tertiary); font-size:13px;">Tidak ada template ditemukan</div>`;
+    return;
+  }
+
+  grid.innerHTML = templates.slice(0, 200).map(t => {
+    const selected = t.id === state.selectedTemplateId ? 'selected' : '';
+    return `<div class="template-thumb ${selected}" 
+                style="background:${t.gradient}; font-family:${t.font.family};"
+                data-template-id="${t.id}"
+                onclick="selectTemplate(${t.id})">
+      <div class="template-thumb-check">✓</div>
+      <div style="position:relative; z-index:1; font-size:11px; font-weight:800;">${t.name.split(' ')[0]}</div>
+      <div class="template-thumb-label">#${t.id}</div>
+    </div>`;
+  }).join('');
+
+  if (templates.length > 200) {
+    grid.innerHTML += `<div style="grid-column:1/-1; text-align:center; padding:12px; color:var(--text-tertiary); font-size:12px;">
+      Menampilkan 200 dari ${templates.length} template. Gunakan pencarian untuk memfilter.
+    </div>`;
+  }
+}
+
+function selectTemplate(id) {
+  state.selectedTemplateId = id;
+  document.querySelectorAll('.template-thumb').forEach(el => {
+    el.classList.toggle('selected', parseInt(el.dataset.templateId) === id);
+  });
+  updatePreview();
+}
+
+function filterTemplates(query) {
+  const q = query.toLowerCase().trim();
+  if (!q) {
+    renderTemplateGrid(state.templates);
+    document.getElementById('templateCount').textContent = state.templates.length + ' template';
+    return;
+  }
+  const filtered = state.templates.filter(t => t.name.toLowerCase().includes(q) || String(t.id) === q);
+  renderTemplateGrid(filtered);
+  document.getElementById('templateCount').textContent = filtered.length + ' template ditemukan';
+}
+
+/* ======================================================================
+   CREATE AD FORM
+   ====================================================================== */
+function updateCharCounter(inputId, counterId, max) {
+  const input = document.getElementById(inputId);
+  const counter = document.getElementById(counterId);
+  const len = input.value.length;
+  counter.textContent = `${len}/${max}`;
+  counter.classList.toggle('over', len > max * 0.9);
+}
+
+function updatePreview() {
+  const title = document.getElementById('adTitle').value.trim() || 'Judul Iklan Anda';
+  const desc = document.getElementById('adDescription').value.trim() || 'Deskripsi iklan akan muncul di sini';
+  const cta = document.getElementById('adCta').value.trim() || 'Kunjungi';
+  const category = document.getElementById('adCategory').value;
+  const link = document.getElementById('adLink').value.trim();
+
+  const previewTitle = document.getElementById('previewTitle');
+  const previewText = document.getElementById('previewText');
+  const previewCta = document.getElementById('previewCta');
+  const previewScreen = document.getElementById('previewScreen');
+  const previewCategory = document.getElementById('previewCategory');
+  const previewTemplate = document.getElementById('previewTemplate');
+  const previewLink = document.getElementById('previewLink');
+
+  previewTitle.textContent = title;
+  previewText.textContent = desc;
+  previewCta.textContent = cta + ' →';
+
+  const cat = CATEGORIES.find(c => c.id === category);
+  previewCategory.textContent = cat ? cat.name : '-';
+
+  if (link) {
+    previewLink.textContent = link;
+  } else {
+    previewLink.textContent = 'Belum ada link';
+  }
+
+  if (state.selectedTemplateId) {
+    const t = state.templates.find(t => t.id === state.selectedTemplateId);
+    if (t) {
+      previewScreen.style.background = t.gradient;
+      previewScreen.style.fontFamily = t.font.family;
+      previewTitle.style.fontWeight = t.font.weight;
+      previewTitle.style.letterSpacing = t.font.letter;
+      previewTemplate.textContent = t.name;
+    }
+  }
+}
+
+function resetCreateForm() {
+  document.getElementById('adTitle').value = '';
+  document.getElementById('adDescription').value = '';
+  document.getElementById('adCategory').value = '';
+  document.getElementById('adCta').value = 'Kunjungi';
+  document.getElementById('adLink').value = '';
+  document.getElementById('titleCounter').textContent = '0/60';
+  document.getElementById('descCounter').textContent = '0/150';
+  updatePreview();
+  toast('Form direset', 'info');
+}
+
+function submitAd() {
+  if (!state.user) {
+    toast('Silakan masuk terlebih dahulu', 'warning');
+    openAuthModal('login');
+    return;
+  }
+
+  const title = document.getElementById('adTitle').value.trim();
+  const description = document.getElementById('adDescription').value.trim();
+  const category = document.getElementById('adCategory').value;
+  const cta = document.getElementById('adCta').value.trim() || 'Kunjungi';
+  const link = document.getElementById('adLink').value.trim();
+
+  if (!title) { toast('Judul iklan wajib diisi', 'error'); return; }
+  if (title.length < 3) { toast('Judul minimal 3 karakter', 'error'); return; }
+  if (!description) { toast('Deskripsi wajib diisi', 'error'); return; }
+  if (!category) { toast('Pilih kategori terlebih dahulu', 'error'); return; }
+  if (!link) { toast('Link tujuan wajib diisi', 'error'); return; }
+  if (!isValidUrl(link)) { toast('Format URL tidak valid', 'error'); return; }
+  if (!state.selectedTemplateId) { toast('Pilih template terlebih dahulu', 'error'); return; }
+
+  const ad = {
+    id: uid(),
+    userId: state.user.id,
+    title,
+    description,
+    category,
+    cta,
+    link: normalizeUrl(link),
+    templateId: state.selectedTemplateId,
+    createdAt: Date.now(),
+    views: 0,
+    clicks: 0,
+    status: 'active',
+    premium: isPremiumUser(),
+  };
+
+  state.ads.unshift(ad);
+  saveState();
+
+  toast('🎉 Iklan berhasil dipublikasikan!', 'success');
+  resetCreateForm();
+  navigateTo('browse');
+}
+
+function isPremiumUser() {
+  if (state.subscription) {
+    return state.subscription.status === 'active' && state.subscription.expiresAt > Date.now();
+  }
+  if (state.trial) {
+    return state.trial.expiresAt > Date.now();
+  }
+  return false;
+}
+
+/* ======================================================================
+   RENDER ADS
+   ====================================================================== */
+function getTemplateById(id) {
+  return state.templates.find(t => t.id === id) || state.templates[0];
+}
+
+function renderAdCard(ad, index) {
+  const t = getTemplateById(ad.templateId);
+  const cat = CATEGORIES.find(c => c.id === ad.category);
+  const ctr = ad.views > 0 ? ((ad.clicks / ad.views) * 100).toFixed(1) : '0';
+
+  return `<div class="ad-card" style="animation-delay:${Math.min(index * 0.03, 0.4)}s" onclick="openAdDetail('${ad.id}')">
+    <div class="ad-card-visual" style="background:${t.gradient}; font-family:${t.font.family};">
+      <div class="ad-visual-badge">${cat ? cat.icon + ' ' + cat.name : 'Iklan'}</div>
+      ${ad.premium ? '<div class="ad-visual-premium">⭐ PREMIUM</div>' : ''}
+      <div class="ad-visual-title" style="font-weight:${t.font.weight}; letter-spacing:${t.font.letter};">${escapeHtml(ad.title)}</div>
+      <div class="ad-visual-text">${escapeHtml(ad.description)}</div>
+      <div class="ad-visual-cta">${escapeHtml(ad.cta)} →</div>
+    </div>
+    <div class="ad-card-body">
+      <div class="ad-card-meta">
+        <span class="ad-category-pill">${cat ? cat.name : 'Umum'}</span>
+        <span class="ad-time">${timeAgo(ad.createdAt)}</span>
+      </div>
+      <div class="ad-card-title">${escapeHtml(ad.title)}</div>
+      <div class="ad-card-stats">
+        <span class="ad-card-stat">👁️ ${formatNumber(ad.views)}</span>
+        <span class="ad-card-stat">🖱️ ${formatNumber(ad.clicks)}</span>
+        <span class="ad-card-stat">📈 ${ctr}%</span>
+      </div>
+    </div>
+    <div class="ad-card-actions" onclick="event.stopPropagation()">
+      <button class="btn btn-secondary btn-sm" onclick="openAdDetail('${ad.id}')">Detail</button>
+      <button class="btn btn-primary btn-sm" onclick="visitAd('${ad.id}')">Kunjungi →</button>
+    </div>
+  </div>`;
+}
+
+function renderFeaturedAds() {
+  const grid = document.getElementById('featuredAdsGrid');
+  if (!grid) return;
+  const ads = state.ads.slice(0, 8);
+  if (ads.length === 0) {
+    grid.innerHTML = `<div class="empty-state">
+      <div class="empty-state-icon">📭</div>
+      <h3>Belum ada iklan</h3>
+      <p>Jadilah yang pertama memasang iklan!</p>
+      <button class="btn btn-primary" style="margin-top:16px;" onclick="navigateTo('create')">Buat Iklan</button>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = ads.map((ad, i) => renderAdCard(ad, i)).join('');
+}
+
+function renderBrowseAds() {
+  const grid = document.getElementById('browseAdsGrid');
+  if (!grid) return;
+
+  let ads = [...state.ads];
+
+  if (state.categoryFilter !== 'all') {
+    ads = ads.filter(a => a.category === state.categoryFilter);
+  }
+  if (state.searchQuery) {
+    const q = state.searchQuery.toLowerCase();
+    ads = ads.filter(a =>
+      a.title.toLowerCase().includes(q) ||
+      a.description.toLowerCase().includes(q)
+    );
+  }
+
+  switch (state.sortBy) {
+    case 'newest': ads.sort((a,b) => b.createdAt - a.createdAt); break;
+    case 'oldest': ads.sort((a,b) => a.createdAt - b.createdAt); break;
+    case 'views': ads.sort((a,b) => b.views - a.views); break;
+    case 'clicks': ads.sort((a,b) => b.clicks - a.clicks); break;
+  }
+
+  if (ads.length === 0) {
+    grid.innerHTML = `<div class="empty-state">
+      <div class="empty-state-icon">🔍</div>
+      <h3>Tidak ada iklan ditemukan</h3>
+      <p>Coba ubah filter atau kata kunci pencarian</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = ads.map((ad, i) => renderAdCard(ad, i)).join('');
+  updateFilterChips();
+}
+
+function renderFilterChips() {
+  const container = document.getElementById('filterChips');
+  if (!container) return;
+
+  const chips = [{ id: 'all', name: 'Semua', icon: '🌟' }, ...CATEGORIES];
+
+  let html = chips.map(c =>
+    `<button class="filter-chip ${state.categoryFilter === c.id ? 'active' : ''}" onclick="setCategoryFilter('${c.id}')">
+      ${c.icon} ${c.name}
+    </button>`
+  ).join('');
+
+  html += `<select class="sort-select" onchange="setSortBy(this.value)">
+    <option value="newest" ${state.sortBy==='newest'?'selected':''}>Terbaru</option>
+    <option value="oldest" ${state.sortBy==='oldest'?'selected':''}>Terlama</option>
+    <option value="views" ${state.sortBy==='views'?'selected':''}>Tayangan Terbanyak</option>
+    <option value="clicks" ${state.sortBy==='clicks'?'selected':''}>Klik Terbanyak</option>
+  </select>`;
+
+  container.innerHTML = html;
+}
+
+function updateFilterChips() {
+  renderFilterChips();
+}
+
+function setCategoryFilter(cat) {
+  state.categoryFilter = cat;
+  renderBrowseAds();
+}
+
+function setSortBy(sort) {
+  state.sortBy = sort;
+  renderBrowseAds();
+}
+
+function handleSearch(q) {
+  state.searchQuery = q;
+  renderBrowseAds();
+}
+
+/* ======================================================================
+   AD DETAIL & VISIT
+   ====================================================================== */
+function openAdDetail(adId) {
+  const ad = state.ads.find(a => a.id === adId);
+  if (!ad) return;
+
+  state.currentAdDetailId = adId;
+
+  // Increment views
+  ad.views = (ad.views || 0) + 1;
+  saveState();
+
+  const t = getTemplateById(ad.templateId);
+  const cat = CATEGORIES.find(c => c.id === ad.category);
+  const ctr = ad.views > 0 ? ((ad.clicks / ad.views) * 100).toFixed(1) : '0';
+
+  document.getElementById('detailVisual').style.background = t.gradient;
+  document.getElementById('detailVisual').style.fontFamily = t.font.family;
+  document.getElementById('detailTitle').textContent = ad.title;
+  document.getElementById('detailTitle').style.fontWeight = t.font.weight;
+  document.getElementById('detailText').textContent = ad.description;
+  document.getElementById('detailCta').textContent = ad.cta + ' →';
+  document.getElementById('detailInfoTitle').textContent = ad.title;
+  document.getElementById('detailInfoDesc').textContent = ad.description + (cat ? ` • Kategori: ${cat.name}` : '');
+  document.getElementById('detailLink').textContent = ad.link;
+  document.getElementById('detailViews').textContent = formatNumber(ad.views);
+  document.getElementById('detailClicks').textContent = formatNumber(ad.clicks);
+  document.getElementById('detailCtr').textContent = ctr + '%';
+
+  openModal('modalAdDetail');
+}
+
+function visitAdFromModal() {
+  if (state.currentAdDetailId) visitAd(state.currentAdDetailId);
+}
+
+function visitAd(adId) {
+  const ad = state.ads.find(a => a.id === adId);
+  if (!ad) return;
+
+  // Track click
+  ad.clicks = (ad.clicks || 0) + 1;
+  saveState();
+
+  toast('Membuka website tujuan...', 'info', 2000);
+  window.open(ad.link, '_blank', 'noopener,noreferrer');
+}
+
+/* ======================================================================
+   PRICING
+   ====================================================================== */
+function setBilling(billing) {
+  state.currentBilling = billing;
+  document.querySelectorAll('.billing-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.billing === billing);
+  });
+  renderPricing();
+}
+
+function renderPricing() {
+  const grid = document.getElementById('pricingGrid');
+  if (!grid) return;
+
+  // Determine which plan to show based on billing
+  // We show all 3 plans always, but highlight based on selected billing
+  const plans = [PLANS.daily, PLANS.monthly, PLANS.yearly];
+
+  grid.innerHTML = plans.map(plan => {
+    const isActive = state.currentBilling === plan.id;
+    const featured = plan.popular ? 'featured' : '';
+    return `<div class="price-card ${featured}" style="${isActive ? 'border-color: var(--brand-accent);' : ''}">
+      ${plan.popular ? '<div class="price-badge-popular">PALING POPULER</div>' : ''}
+      <div class="price-name">${plan.name}</div>
+      <div class="price-desc">${plan.desc}</div>
+      <div class="price-amount">
+        <span class="price-currency">Rp</span>
+        <span class="price-value">${plan.price.toLocaleString('id-ID')}</span>
+        <span class="price-period">/${plan.period}</span>
+      </div>
+      ${plan.originalPrice ? `<div class="price-strike">${formatRupiah(plan.originalPrice)}</div>` : '<div class="price-strike"></div>'}
+      <ul class="price-features">
+        ${plan.features.map(f => `<li class="${f.active ? '' : 'disabled'}">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            ${f.active ? '<polyline points="20 6 9 17 4 12"/>' : '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'}
+          </svg>
+          ${f.text}
+        </li>`).join('')}
+      </ul>
+      <button class="btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block" onclick="openSubscribeModal('${plan.id}')">
+        ${plan.popular ? '💎 Pilih Paket Ini' : 'Pilih Paket'}
+      </button>
+      <button class="btn btn-ghost btn-block btn-sm" style="margin-top:8px;" onclick="openTrialModal('${plan.id}')">
+        🎁 Coba Trial 3 Hari
+      </button>
+    </div>`;
+  }).join('');
+}
+
+/* ======================================================================
+   TRIAL
+   ====================================================================== */
+function openTrialModal(planId) {
+  if (!state.user) {
+    toast('Silakan masuk terlebih dahulu', 'warning');
+    openAuthModal('login');
+    return;
+  }
+  if (state.trial && state.trial.expiresAt > Date.now()) {
+    toast('Anda sudah memiliki trial aktif!', 'warning');
+    return;
+  }
+  if (state.trial) {
+    toast('Trial hanya bisa digunakan sekali', 'error');
+    return;
+  }
+  document.getElementById('trialPlanSelect').value = planId === 'daily' ? 'monthly' : planId;
+  updateTrialSummary();
+  openModal('modalTrial');
+}
+
+function updateTrialSummary() {
+  const planId = document.getElementById('trialPlanSelect').value;
+  const plan = PLANS[planId];
+  if (!plan) return;
+
+  document.getElementById('trialPlanSummary').innerHTML = `
+    <div class="trial-plan-row"><span>Paket Trial</span><span>${plan.name}</span></div>
+    <div class="trial-plan-row"><span>Durasi Trial</span><span>3 Hari</span></div>
+    <div class="trial-plan-row"><span>Harga Setelah Trial</span><span>${formatRupiah(plan.price)}/${plan.period}</span></div>
+    <div class="trial-plan-row"><span>Biaya Sekarang</span><span style="color:var(--success);">GRATIS</span></div>
+  `;
+}
+
+function activateTrial() {
+  if (!state.user) return;
+  const planId = document.getElementById('trialPlanSelect').value;
+  const now = Date.now();
+  const threeDays = 3 * 24 * 60 * 60 * 1000;
+
+  state.trial = {
+    planId,
+    activatedAt: now,
+    expiresAt: now + threeDays,
+    status: 'active',
+  };
+  saveState();
+
+  closeModal();
+  toast('🎉 Trial 3 hari berhasil diaktifkan! Nikmati fitur premium.', 'success', 4000);
+  updateSubscriptionUI();
+  navigateTo('dashboard');
+}
+
+/* ======================================================================
+   SUBSCRIPTION
+   ====================================================================== */
+function openSubscribeModal(planId) {
+  if (!state.user) {
+    toast('Silakan masuk terlebih dahulu', 'warning');
+    openAuthModal('login');
+    return;
+  }
+  const plan = PLANS[planId];
+  if (!plan) return;
+
+  state.pendingPlanId = planId;
+
+  const summary = document.getElementById('subscribeSummary');
+  summary.innerHTML = `
+    <div class="trial-plan-row"><span>Paket</span><span>${plan.name}</span></div>
+    <div class="trial-plan-row"><span>Durasi</span><span>1 ${plan.period}</span></div>
+    <div class="trial-plan-row"><span>Harga</span><span>${formatRupiah(plan.price)}</span></div>
+    <div class="trial-plan-row"><span>Total</span><span style="color:var(--success);font-weight:800;">${formatRupiah(plan.price)}</span></div>
+  `;
+  openModal('modalSubscribe');
+}
+
+function processSubscription() {
+  if (!state.user || !state.pendingPlanId) return;
+  const plan = PLANS[state.pendingPlanId];
+  const now = Date.now();
+  let duration = 0;
+  if (plan.id === 'daily') duration = 24 * 60 * 60 * 1000;
+  else if (plan.id === 'monthly') duration = 30 * 24 * 60 * 60 * 1000;
+  else if (plan.id === 'yearly') duration = 365 * 24 * 60 * 60 * 1000;
+
+  state.subscription = {
+    planId: plan.id,
+    planName: plan.name,
+    price: plan.price,
+    startedAt: now,
+    expiresAt: now + duration,
+    status: 'active',
+  };
+  // Clear trial if exists
+  state.trial = null;
+  saveState();
+
+  closeModal();
+  toast(`✅ Berlangganan ${plan.name} berhasil diaktifkan!`, 'success', 4000);
+  updateSubscriptionUI();
+  navigateTo('dashboard');
+}
+
+function updateSubscriptionUI() {
+  const badge = document.getElementById('subBadge');
+  const title = document.getElementById('subTitle');
+  const desc = document.getElementById('subDesc');
+
+  if (state.subscription && state.subscription.expiresAt > Date.now()) {
+    const s = state.subscription;
+    badge.className = 'subscription-badge';
+    badge.textContent = '✓ AKTIF';
+    title.textContent = `Paket ${s.planName}`;
+    const days = Math.ceil((s.expiresAt - Date.now()) / (24*60*60*1000));
+    desc.textContent = `Aktif • Tersisa ${days} hari • Berakhir ${new Date(s.expiresAt).toLocaleDateString('id-ID')}`;
+  } else if (state.trial && state.trial.expiresAt > Date.now()) {
+    const t = state.trial;
+    const plan = PLANS[t.planId];
+    const hours = Math.ceil((t.expiresAt - Date.now()) / (60*60*1000));
+    badge.className = 'subscription-badge trial';
+    badge.textContent = '⏱ TRIAL';
+    title.textContent = `Trial ${plan.name}`;
+    desc.textContent = `Uji coba aktif • Tersisa ${hours} jam`;
+  } else {
+    badge.className = 'subscription-badge free';
+    badge.textContent = 'GRATIS';
+    title.textContent = 'Paket Free';
+    desc.textContent = 'Anda belum berlangganan. Mulai trial gratis 3 hari untuk fitur premium.';
+  }
+}
+
+/* ======================================================================
+   DASHBOARD
+   ====================================================================== */
+function renderDashboard() {
+  if (!state.user) {
+    document.getElementById('dashboardAdsList').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">🔒</div>
+        <h3>Silakan masuk</h3>
+        <p>Login untuk melihat dashboard dan iklan Anda</p>
+        <button class="btn btn-primary" style="margin-top:16px;" onclick="openAuthModal('login')">Masuk Sekarang</button>
+      </div>`;
+    document.getElementById('statsTotalAds').textContent = '0';
+    document.getElementById('statsTotalViews').textContent = '0';
+    document.getElementById('statsTotalClicks').textContent = '0';
+    document.getElementById('statsCtr').textContent = '0%';
+    updateSubscriptionUI();
+    return;
+  }
+
+  updateSubscriptionUI();
+
+  const myAds = state.ads.filter(a => a.userId === state.user.id);
+
+  const totalViews = myAds.reduce((s, a) => s + (a.views || 0), 0);
+  const totalClicks = myAds.reduce((s, a) => s + (a.clicks || 0), 0);
+  const ctr = totalViews > 0 ? ((totalClicks / totalViews) * 100).toFixed(1) : '0';
+
+  document.getElementById('statsTotalAds').textContent = myAds.length;
+  document.getElementById('statsTotalViews').textContent = formatNumber(totalViews);
+  document.getElementById('statsTotalClicks').textContent = formatNumber(totalClicks);
+  document.getElementById('statsCtr').textContent = ctr + '%';
+
+  const list = document.getElementById('dashboardAdsList');
+
+  if (myAds.length === 0) {
+    list.innerHTML = `<div class="empty-state" style="background:var(--bg-secondary); border-radius:var(--radius-lg);">
+      <div class="empty-state-icon">📢</div>
+      <h3>Belum ada iklan</h3>
+      <p>Buat iklan pertama Anda sekarang!</p>
+      <button class="btn btn-primary" style="margin-top:16px;" onclick="navigateTo('create')">➕ Buat Iklan</button>
+    </div>`;
+    return;
+  }
+
+  list.innerHTML = myAds.map(ad => {
+    const t = getTemplateById(ad.templateId);
+    const cat = CATEGORIES.find(c => c.id === ad.category);
+    return `<div class="dashboard-ad-item">
+      <div class="dashboard-ad-thumb" style="background:${t.gradient};">
+        ${escapeHtml(ad.title.substring(0, 20))}
+      </div>
+      <div class="dashboard-ad-info">
+        <div class="dashboard-ad-title">${escapeHtml(ad.title)}</div>
+        <div class="dashboard-ad-meta">
+          <span>${cat ? cat.icon + ' ' + cat.name : 'Umum'}</span>
+          <span>👁️ ${formatNumber(ad.views)} views</span>
+          <span>🖱️ ${formatNumber(ad.clicks)} clicks</span>
+          <span>${timeAgo(ad.createdAt)}</span>
+        </div>
+      </div>
+      <div class="dashboard-ad-status status-active">Aktif</div>
+      <div class="dashboard-ad-actions">
+        <button class="btn btn-secondary btn-sm" onclick="openAdDetail('${ad.id}')">Detail</button>
+        <button class="btn btn-primary btn-sm" onclick="visitAd('${ad.id}')">Kunjungi</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteAd('${ad.id}')">Hapus</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function deleteAd(adId) {
+  if (!confirm('Yakin ingin menghapus iklan ini?')) return;
+  state.ads = state.ads.filter(a => a.id !== adId);
+  saveState();
+  renderDashboard();
+  renderFeaturedAds();
+  renderBrowseAds();
+  toast('Iklan berhasil dihapus', 'success');
+}
+
+/* ======================================================================
+   CATEGORIES RENDER
+   ====================================================================== */
+function renderCategories() {
+  const grid = document.getElementById('categoriesGrid');
+  if (!grid) return;
+  grid.innerHTML = CATEGORIES.map(c => {
+    const count = state.ads.filter(a => a.category === c.id).length;
+    return `<div class="category-card" onclick="navigateTo('browse'); setTimeout(()=>setCategoryFilter('${c.id}'),50)">
+      <div class="category-card-icon">${c.icon}</div>
+      <div class="category-card-name">${c.name}</div>
+      <div class="category-card-count">${count} iklan</div>
+    </div>`;
+  }).join('');
+}
+
+/* ======================================================================
+   STATS UPDATE
+   ====================================================================== */
+function updateGlobalStats() {
+  const totalAds = state.ads.length;
+  const totalViews = state.ads.reduce((s, a) => s + (a.views || 0), 0);
+  const uniqueUsers = new Set(state.ads.map(a => a.userId)).size;
+
+  const el1 = document.getElementById('statAdsCount');
+  const el2 = document.getElementById('statViewsCount');
+  const el3 = document.getElementById('statUsersCount');
+
+  if (el1) el1.textContent = formatNumber(totalAds + 1247);
+  if (el2) el2.textContent = formatNumber(totalViews + 128450);
+  if (el3) el3.textContent = formatNumber(uniqueUsers + 842);
+}
+
+/* ======================================================================
+   SEED DATA (DEMO ADS)
+   ====================================================================== */
+function seedDemoAds() {
+  if (state.ads.length > 0) return;
+
+  const demos = [
+    { title: 'Diskon 50% Sepatu Sneakers', desc: 'Promo terbatas! Koleksi sneakers premium dengan harga spesial.', cat: 'fashion', link: 'https://tokopedia.com', cta: 'Belanja', template: 5 },
+    { title: 'Kursus Coding Gratis 7 Hari', desc: 'Belajar programming dari nol. Daftar sekarang!', cat: 'pendidikan', link: 'https://dicoding.com', cta: 'Daftar', template: 23 },
+    { title: 'Kopi Spesial Akhir Pekan', desc: 'Nikmati kopi arabika premium dengan diskon 30%.', cat: 'makanan', link: 'https://example.com/kopi', cta: 'Pesan', template: 12 },
+    { title: 'Aplikasi Kasir UMKM Gratis', desc: 'Kelola toko lebih mudah dengan aplikasi kasir modern.', cat: 'bisnis', link: 'https://example.com/kasir', cta: 'Download', template: 47 },
+    { title: 'Liburan Bali 3H2M', desc: 'Paket liburan hemat ke Bali. Mulai dari 1,5jt aja!', cat: 'travel', link: 'https://traveloka.com', cta: 'Pesan', template: 31 },
+    { title: 'Seminar Online Digital Marketing', desc: 'Belajar strategi marketing digital dari ahlinya.', cat: 'bisnis', link: 'https://example.com/seminar', cta: 'Daftar', template: 8 },
+    { title: 'Smartwatch Terbaru 2025', desc: 'Fitur lengkap, harga terjangkau. Cicilan 0%.', cat: 'teknologi', link: 'https://example.com/watch', cta: 'Beli', template: 15 },
+    { title: 'Klinik Gigi Buka 24 Jam', desc: 'Layanan kesehatan gigi terpercaya dengan dokter profesional.', cat: 'kesehatan', link: 'https://example.com/klinik', cta: 'Booking', template: 22 },
+    { title: 'Nonton Film Terbaru Gratis', desc: 'Streaming film & series tanpa batas. Kualitas HD.', cat: 'hiburan', link: 'https://example.com/stream', cta: 'Tonton', template: 40 },
+    { title: 'Servis Motor Cepat & Murah', desc: 'Servis motor semua merek. Bergaransi & terpercaya.', cat: 'otomotif', link: 'https://example.com/servis', cta: 'Servis', template: 56 },
+    { title: 'Hijab Modern Syar\'i', desc: 'Koleksi hijab premium dengan bahan nyaman.', cat: 'fashion', link: 'https://example.com/hijab', cta: 'Belanja', template: 63 },
+    { title: 'Les Privat Matematika', desc: 'Guru berpengalaman. Hasil terjamin. Coba gratis!', cat: 'pendidikan', link: 'https://example.com/les', cta: 'Daftar', template: 77 },
+  ];
+
+  demos.forEach((d, i) => {
+    state.ads.push({
+      id: uid() + '_demo_' + i,
+      userId: 'demo_user',
+      title: d.title,
+      description: d.desc,
+      category: d.cat,
+      cta: d.cta,
+      link: d.link,
+      templateId: d.template,
+      createdAt: Date.now() - (i * 3600000 * 6),
+      views: Math.floor(Math.random() * 500) + 20,
+      clicks: Math.floor(Math.random() * 100) + 5,
+      status: 'active',
+      premium: i < 3,
+    });
+  });
+
+  saveState();
+}
+
+/* ======================================================================
+   INITIALIZATION
+   ====================================================================== */
+function init() {
+  state.templates = generateTemplates();
+  loadState();
+  seedDemoAds();
+  updateAuthUI();
+  renderCategories();
+  renderFeaturedAds();
+  renderFilterChips();
+  renderTemplatePicker();
+  renderPricing();
+  updatePreview();
+  updateGlobalStats();
+
+  // Welcome toast
+  setTimeout(() => {
+    toast('Selamat datang di IklanPro! 👋', 'info', 3000);
+  }, 500);
+
+  // Auto-select a template
+  if (state.templates.length > 0 && !state.selectedTemplateId) {
+    state.selectedTemplateId = state.templates[0].id;
+  }
+  updatePreview();
+
+  // Trial expiry check
+  if (state.trial && state.trial.expiresAt < Date.now()) {
+    state.trial = null;
+    saveState();
+  }
+  if (state.subscription && state.subscription.expiresAt < Date.now()) {
+    state.subscription = null;
+    saveState();
+  }
+
+  // Fake live stats update
+  setInterval(() => {
+    if (state.ads.length > 0) {
+      const randomAd = state.ads[Math.floor(Math.random() * state.ads.length)];
+      randomAd.views = (randomAd.views || 0) + Math.floor(Math.random() * 3);
+      updateGlobalStats();
+    }
+  }, 12000);
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Sync state periodically
+  setInterval(saveState, 30000);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+
+// Expose for inline handlers
+window.navigateTo = navigateTo;
+window.toggleMobileMenu = toggleMobileMenu;
+window.openAuthModal = openAuthModal;
+window.switchAuthTab = switchAuthTab;
+window.submitAuth = submitAuth;
+window.logout = logout;
+window.toggleUserDropdown = toggleUserDropdown;
+window.closeUserDropdown = closeUserDropdown;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.selectTemplate = selectTemplate;
+window.filterTemplates = filterTemplates;
+window.updateCharCounter = updateCharCounter;
+window.updatePreview = updatePreview;
+window.resetCreateForm = resetCreateForm;
+window.submitAd = submitAd;
+window.openAdDetail = openAdDetail;
+window.visitAd = visitAd;
+window.visitAdFromModal = visitAdFromModal;
+window.setCategoryFilter = setCategoryFilter;
+window.setSortBy = setSortBy;
+window.handleSearch = handleSearch;
+window.setBilling = setBilling;
+window.openTrialModal = openTrialModal;
+window.updateTrialSummary = updateTrialSummary;
+window.activateTrial = activateTrial;
+window.openSubscribeModal = openSubscribeModal;
+window.processSubscription = processSubscription;
+window.deleteAd = deleteAd;
+</script>
+</body>
+</html>
